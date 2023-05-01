@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "ESNext",
+    "target": "ESNext",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "noEmit": true,
+    "paths": {
+      "@mobile/*": ["./src/components/mobile/*"],
+      "@desktop/*": ["./src/components/desktop/*"],
+      "@common/*": ["./src/components/common/*"],
+      "@share/*": ["./src/components/share/*"],
+      "@type/*": ["./src/data/types/*"],
+      "@actions/*": ["./src/data/actions/*"],
+      "@reducers/*": ["./src/data/reducers/*"],
+      "@data/*": ["./src/data/*"],
+      "@selectors/*": ["./src/data/selectors/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@services/*": ["./src/services/*"]
+    }
+  },
+  "includes": ["src/**/*", "src/declaration.d.ts"]
+}
