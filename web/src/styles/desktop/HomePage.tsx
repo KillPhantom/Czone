@@ -37,7 +37,7 @@ export const BackgroundImg = styled.img.attrs({ src: robotImg })`
 export const Slogan = styled.div`
   font-family: "PingFang HK";
   font-weight: 600;
-  font-size: 80px;
+  font-size: 50px;
 
   background: linear-gradient(126.9deg, #f8f3d1 8.11%, #fce29c 61.63%);
   -webkit-background-clip: text;
@@ -50,7 +50,7 @@ export const SloganHeader = styled.div`
   font-family: "Heiti TC";
   font-style: normal;
   font-weight: 400;
-  font-size: 40px;
+  font-size: 30px;
   line-height: 62px;
 
   background: linear-gradient(126.9deg, #fbfdab 8.11%, #dbc73c 61.63%);

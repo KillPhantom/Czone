@@ -12,9 +12,9 @@ export const AppRoot = createGlobalStyle`
   }
   .ant-select-selector {
     width: 100%;
-    height: 40px !important;
+    height: 50px !important;
     border-radius: 12px !important;
-    padding:4px 20px !important;
+    padding:10px 20px !important;
     font-size: 14px !important;
   }
 `;

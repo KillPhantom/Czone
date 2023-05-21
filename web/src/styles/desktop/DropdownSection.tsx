@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: 100%;
-  min-height: 200px;
+  height: 200px;
   opacity: 0;
   z-index: 3;
   display: flex;
@@ -14,6 +14,9 @@ export const Wrapper = styled.div`
     100% {
       opacity: 1;
     }
+  }
+  @media (max-width: 767px) {
+    height: 50vh;
   }
 `;
 

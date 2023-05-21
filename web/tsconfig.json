@@ -22,7 +22,9 @@
       "@selectors/*": ["./src/data/selectors/*"],
       "@styles/*": ["./src/styles/*"],
       "@assets/*": ["./src/assets/*"],
-      "@services/*": ["./src/services/*"]
+      "@services/*": ["./src/services/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@pageSwitch/*": ["./src/components/pageSwitch/*"]
     }
   },
   "includes": ["src/**/*", "src/declaration.d.ts"]

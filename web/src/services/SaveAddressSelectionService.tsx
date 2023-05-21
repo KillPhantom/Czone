@@ -1,5 +1,5 @@
 import axios from "axios";
-import { AddressType } from "../data/types/AddressType";
+import { AddressType } from "../data/types/CompanyInfoType";
 
 export default (async function SaveAddressSelection(
   addresses: Array<AddressType | null | undefined>

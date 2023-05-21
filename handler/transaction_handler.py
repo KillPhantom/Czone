@@ -5,7 +5,7 @@ from ethererum.ethereum import EtherScan
 from ethererum.get_erc20_token_txn import EtherScanTokenTransaction
 from data.model.address import AddressType
 from mongoengine.queryset.visitor import Q
-from memcache.memcache import MemCacheClient, MemCacheKey
+from cache.memcache import MemCacheClient, MemCacheKey
 
 class GetTransactionHandler(BaseHandler):
     def get(self):

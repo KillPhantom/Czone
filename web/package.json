@@ -22,6 +22,7 @@
     "@types/styled-components": "^5.1.26",
     "babel-loader": "^9.1.0",
     "html-webpack-plugin": "^5.5.0",
+    "lodash": "^4.17.21",
     "ts-loader": "^9.4.2",
     "tsconfig-paths": "^4.1.1",
     "ttf-loader": "^1.0.2",
@@ -33,6 +34,8 @@
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
+    "@types/lodash": "^4.14.194",
+    "@types/recharts": "^1.8.24",
     "antd": "5.0.1",
     "axios": "^0.23.0",
     "dnd-core": "^16.0.1",
@@ -48,6 +51,7 @@
     "react-router-dom": "^6.4.2",
     "react-scripts": "4.0.3",
     "react-tiny-link": "^3.6.1",
+    "recharts": "^2.5.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.3.3"

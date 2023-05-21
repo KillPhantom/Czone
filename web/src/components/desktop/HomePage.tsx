@@ -1,19 +1,12 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { DEMO_PAGE } from "../../Routes";
 
 /* Components */
-import {
-  Space,
-  Form,
-  Input,
-  Select,
-  Row,
-  Col,
-  Image,
-  Divider as AntDivider,
-} from "antd";
+import { Space, Form, Input, Select } from "antd";
 import Button, { BUTTON_TYPE } from "@common/Button";
 import Navbar from "@desktop/Navbar";
 import Card from "@common/Card";
+import BottomContent from "@desktop/BottomSection";
 
 /* Styles */
 import {
@@ -28,8 +21,6 @@ import {
   Divider,
   BottomSection,
   BottomSectionHeader,
-  InfoHeader,
-  InfoBody,
 } from "@styles/desktop/HomePage";
 
 import Circle from "@assets/icons/Circles";
@@ -37,6 +28,7 @@ import Earth from "@assets/icons/Earth";
 import Rects from "@assets/icons/Rects";
 
 const HomePage = () => {
+  const navigate = useNavigate();
   const [form] = Form.useForm();
   const onSubmit = (values: any) => {
     console.log("Finish:", values);
@@ -66,6 +58,9 @@ const HomePage = () => {
             <Button
               variant={BUTTON_TYPE.GHOST}
               overrideStyle={{ marginTop: "40px", maxWidth: "300px" }}
+              onClick={() => {
+                navigate(DEMO_PAGE);
+              }}
             >
               参与内测
             </Button>
@@ -166,41 +161,7 @@ const HomePage = () => {
               </Form.Item>
             </Space>
           </Form>
-
-          <Row style={{ marginTop: "10vh", marginLeft: "40px" }}>
-            <Col span={8}>
-              <InfoHeader>解决方案</InfoHeader>
-              <InfoBody>公司效率诊断</InfoBody>
-              <InfoBody>员工绩效诊断</InfoBody>
-              <InfoBody>人才管理优化</InfoBody>
-              <InfoBody>薪资福利优化</InfoBody>
-            </Col>
-            <Col span={8}>
-              <InfoHeader>了解我们</InfoHeader>
-              <InfoBody>团队介绍</InfoBody>
-              <InfoBody>算法介绍</InfoBody>
-              <InfoBody>荣誉资质</InfoBody>
-            </Col>
-            <Col span={8}>
-              <InfoHeader style={{ textAlign: "left" }}>联系我们</InfoHeader>
-              <Image
-                width={140}
-                src="https://www.beisen.com/public/mobile/index/images/foter3.jpg"
-              />
-            </Col>
-          </Row>
-          <AntDivider style={{ background: "#f8db91", marginTop: "10vh" }} />
-          <Row style={{ marginTop: "2px", marginLeft: "40px" }}>
-            <Col span={8}>
-              <InfoBody>Copywrite @2023 息纵 All Rights Reserved</InfoBody>
-            </Col>
-            <Col span={8}>
-              <InfoBody>沪ICP备09051952号-6</InfoBody>
-            </Col>
-            <Col span={8}>
-              <InfoBody>隐私条款</InfoBody>
-            </Col>
-          </Row>
+          <BottomContent />
         </BottomSection>
       </Wrapper>
     </>

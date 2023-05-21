@@ -23,6 +23,12 @@ def _convert_param(param, _type):
 
 
 class BaseHandler(RequestHandler):
+    RATE_LIMIT_MAX_HITS = 12
+    RATE_LIMIT_TIME_WINDOW_MINUTES = 1
+    # _rate_limiter = RateLimiter(
+    #     "general-request", RATE_LIMIT_MAX_HITS, RATE_LIMIT_TIME_WINDOW_MINUTES
+    # )
+
     def get_param(self, param, _type=None, default=None):
         param = self.get_argument(param, default)
         if not param and default:
@@ -32,4 +38,3 @@ class BaseHandler(RequestHandler):
     def get_post_param(self, param, _type=None):
         request_body = json.loads(self.request.body)
         return _convert_param(request_body.get(param), _type)
-

@@ -1,8 +1,8 @@
-import FetchUsersTweetsServices from "@services/FetchUsersTweetsServices";
+import SaveCompanyInfoService from "@services/SaveCompanyInfoService";
 
-export const FETCH_USERS_TWEETS = "FETCH_USER_TWEETS" as const;
+export const SAVE_INFO = "SAVE_INFO" as const;
 
-export const fetchUsersTweets = (urls: Array<string>) => ({
-  type: FETCH_USERS_TWEETS,
-  payload: FetchUsersTweetsServices,
+export const saveCompanyInfo = (surveyForm: Array<string>) => ({
+  type: SAVE_INFO,
+  payload: SaveCompanyInfoService(surveyForm),
 });

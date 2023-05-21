@@ -1,12 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
-import { DownOutlined, UserOutlined } from "@ant-design/icons";
+import { DownOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Button as AntButton, message, Space, Tooltip } from "antd";
+import { message } from "antd";
+import { useNavigate } from "react-router-dom";
+import { DEMO_PAGE, HOME_PAGE } from "../../Routes";
 
 /* Components */
 import LogoWithText from "@assets/icons/Heart";
 import Button, { BUTTON_TYPE } from "@common/Button";
-import Dropdown from "@desktop/Dropdown";
+import Dropdown from "@desktop/DropdownSection";
 
 /* Styles */
 import {
@@ -17,6 +19,7 @@ import {
   LogoTitle,
   ButtonGroup,
   MenuItem,
+  LogoImg,
 } from "@styles/desktop/Navbar";
 
 const items: MenuProps["items"] = [
@@ -38,15 +41,11 @@ const Navbar = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const [height, setHeight] = useState(0);
   const ref = useRef(null);
-
-  const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    message.info("Click on left button.");
-    console.log("click left button", e);
-  };
+  const navigate = useNavigate();
 
   const handleMenuClick: MenuProps["onClick"] = (e) => {
     message.info("Click on menu item.");
-    console.log("click", e);
+    navigate(DEMO_PAGE);
   };
 
   const menuProps = {
@@ -70,9 +69,9 @@ const Navbar = () => {
       >
         <MainContent>
           <div style={{ display: "flex" }}>
-            <LogoContainer>
+            <LogoContainer onClick={() => navigate(HOME_PAGE)}>
               <div style={{ display: "flex" }}>
-                <LogoWithText overrideStyle={{ marginRight: "8px" }} />
+                <LogoImg />
                 <LogoTitle>C-Zone</LogoTitle>
               </div>
               <LogoBody>boost productivity with one click</LogoBody>
@@ -92,20 +91,19 @@ const Navbar = () => {
             </Button>
           </div>
           <ButtonGroup>
-            <Button
+            {/* <Button
               variant={BUTTON_TYPE.GHOST}
               overrideStyle={{ width: "200px", color: "#FCE29C" }}
-            >
-              参与内测
-            </Button>
+            ></Button> */}
             <Button
               overrideStyle={{
                 width: "200px",
                 marginLeft: "20px",
                 color: "black",
               }}
+              onClick={() => navigate(DEMO_PAGE)}
             >
-              联系我们
+              预约演示
             </Button>
           </ButtonGroup>
         </MainContent>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Logo from "@assets/icons/logo.png";
 
 export const Wrapper = styled.div<{
   showDropdown?: boolean;
@@ -35,13 +36,15 @@ export const MainContent = styled.div`
 `;
 export const LogoContainer = styled.div`
   margin-left: 4vw;
+  cursor: pointer;
 `;
 
 export const LogoTitle = styled.div`
+  margin-left: 10px;
   font-family: "Heiti TC";
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 20px;
   color: #ffffff;
 `;
 
@@ -65,4 +68,9 @@ export const MenuItem = styled.div`
   font-size: 18px;
   text-align: left;
   color: #f8db91;
+`;
+
+export const LogoImg = styled.img.attrs({ src: Logo })`
+  margin-top: -10px;
+  width: 40px;
 `;
