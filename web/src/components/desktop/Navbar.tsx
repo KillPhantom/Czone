@@ -24,15 +24,15 @@ import {
 
 const items: MenuProps["items"] = [
   {
-    label: <MenuItem>公司效率诊断</MenuItem>,
+    label: <MenuItem>公司结构优化</MenuItem>,
     key: "1",
   },
   {
-    label: <MenuItem>员工效率诊断</MenuItem>,
+    label: <MenuItem>员工日常管理</MenuItem>,
     key: "2",
   },
   {
-    label: <MenuItem>智能人才招聘</MenuItem>,
+    label: <MenuItem>人员队伍扩张</MenuItem>,
     key: "3",
   },
 ];

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import robotImg from "@assets/images/robot.png";
+import QRCodeImg from "@assets/images/QRCode.png";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -21,7 +22,7 @@ export const Content = styled.div`
 `;
 
 export const TitleContainer = styled.div`
-  max-width: 32vw;
+  max-width: 40vw;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -32,6 +33,10 @@ export const TitleContainer = styled.div`
 export const BackgroundImg = styled.img.attrs({ src: robotImg })`
   max-width: 80vw;
   margin-right: 4vw;
+`;
+
+export const QRCodeImage = styled.img.attrs({ src: QRCodeImg })`
+  width: 180px;
 `;
 
 export const Slogan = styled.div`

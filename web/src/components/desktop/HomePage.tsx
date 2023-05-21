@@ -2,11 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { DEMO_PAGE } from "../../Routes";
 
 /* Components */
-import { Space, Form, Input, Select } from "antd";
+import { Space, Form, Input, Select, Modal } from "antd";
 import Button, { BUTTON_TYPE } from "@common/Button";
 import Navbar from "@desktop/Navbar";
 import Card from "@common/Card";
 import BottomContent from "@desktop/BottomSection";
+import { connect } from "react-redux";
+import SaveCompanyInfoService from "@services/SaveCompanyInfoService";
 
 /* Styles */
 import {
@@ -27,22 +29,24 @@ import Circle from "@assets/icons/Circles";
 import Earth from "@assets/icons/Earth";
 import Rects from "@assets/icons/Rects";
 
-const HomePage = () => {
+import { PRODUCT_OPTIONS, PEOPLE_OPTIONS } from "@data/Constants";
+
+const mapDispatchToProps = (dispatch: any) => ({
+  saveInfo: (surveyForm: any) => SaveCompanyInfoService(surveyForm),
+});
+
+type PropsType = ReturnType<typeof mapDispatchToProps>;
+
+const HomePage = ({ saveInfo }: PropsType) => {
   const navigate = useNavigate();
   const [form] = Form.useForm();
   const onSubmit = (values: any) => {
-    console.log("Finish:", values);
+    saveInfo(values);
+    Modal.success({
+      content: "感谢提交信息！我们将尽快与您取得联系",
+    });
   };
-  const options = [
-    {
-      value: 1,
-      label: "智能效率诊断",
-    },
-    {
-      value: 2,
-      label: "智能人才管理",
-    },
-  ];
+
   return (
     <>
       <Navbar />
@@ -52,8 +56,7 @@ const HomePage = () => {
             <SloganHeader>Artificial Intelligence</SloganHeader>
             <Slogan>企业人力效率管理加速器</Slogan>
             <SloganBody>
-              AI自动化绩效管理、人才招聘、企业培训等流程,
-              提高管理效率,加强公司凝聚力。AI自动化绩效管理、人才招聘、企业培训等流程
+              AI自动化绩效管理、人才招聘、企业培训等流程, 提高管理效率
             </SloganBody>
             <Button
               variant={BUTTON_TYPE.GHOST}
@@ -123,7 +126,7 @@ const HomePage = () => {
                 />
               </Form.Item>
               <Form.Item
-                name="phoneNumber"
+                name="contactNumber"
                 rules={[{ required: true, message: "手机号码不能为空" }]}
               >
                 <Input
@@ -142,8 +145,8 @@ const HomePage = () => {
               >
                 <Select
                   placeholder="兴趣产品"
-                  options={options}
-                  style={{ width: "180px" }}
+                  options={PRODUCT_OPTIONS}
+                  style={{ width: "160px" }}
                 />
               </Form.Item>
               <Form.Item>
@@ -168,4 +171,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default connect(null, mapDispatchToProps)(HomePage);

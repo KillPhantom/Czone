@@ -5,9 +5,10 @@ import Button, { BUTTON_TYPE } from "@common/Button";
 // @actions
 import { connect } from "react-redux";
 import SaveCompanyInfoService from "@services/SaveCompanyInfoService";
+import { PRODUCT_OPTIONS, PEOPLE_OPTIONS } from "@data/Constants";
 
 const mapDispatchToProps = (dispatch: any) => ({
-  saveInfo: (surveyForm: any) => SaveCompanyInfoService(surveyForm),
+  saveInfo: (surveyForm: any) => dispatch(SaveCompanyInfoService(surveyForm)),
 });
 
 type PropsType = ReturnType<typeof mapDispatchToProps>;
@@ -22,43 +23,6 @@ const SurveyForm = ({ saveInfo }: PropsType) => {
     });
   };
 
-  const options = [
-    {
-      value: "company",
-      label: "公司结构优化",
-    },
-    {
-      value: "employee",
-      label: "员工日常管理",
-    },
-    {
-      value: "recruitment",
-      label: "人员队伍扩张",
-    },
-  ];
-
-  const peopleOptions = [
-    {
-      value: 1,
-      label: "小于10人",
-    },
-    {
-      value: 2,
-      label: "10 ~ 50 人",
-    },
-    {
-      value: 3,
-      label: "50 ~ 100 人",
-    },
-    {
-      value: 4,
-      label: "100 ~ 500 人",
-    },
-    {
-      value: 5,
-      label: "500 人以上",
-    },
-  ];
   return (
     <Wrapper>
       <Title>预约产品演示</Title>
@@ -116,13 +80,13 @@ const SurveyForm = ({ saveInfo }: PropsType) => {
           name="companySize"
           rules={[{ required: true, message: "人数选项不能为空" }]}
         >
-          <Select placeholder="公司人数" options={peopleOptions} />
+          <Select placeholder="公司人数" options={PEOPLE_OPTIONS} />
         </Form.Item>
         <Form.Item
           name="topic"
           rules={[{ required: true, message: "产品不能为空" }]}
         >
-          <Select placeholder="兴趣产品" options={options} />
+          <Select placeholder="兴趣产品" options={PRODUCT_OPTIONS} />
         </Form.Item>
 
         <Form.Item>

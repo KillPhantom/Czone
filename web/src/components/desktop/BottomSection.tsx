@@ -1,5 +1,5 @@
 import { Row, Col, Image, Divider as AntDivider } from "antd";
-import { InfoHeader, InfoBody } from "@styles/desktop/HomePage";
+import { InfoHeader, InfoBody, QRCodeImage } from "@styles/desktop/HomePage";
 
 const BottomSection = () => {
   return (
@@ -20,10 +20,7 @@ const BottomSection = () => {
         </Col>
         <Col span={8}>
           <InfoHeader style={{ textAlign: "left" }}>联系我们</InfoHeader>
-          <Image
-            width={140}
-            src="https://www.beisen.com/public/mobile/index/images/foter3.jpg"
-          />
+          <QRCodeImage />
         </Col>
       </Row>
       <AntDivider style={{ background: "#f8db91", marginTop: "10vh" }} />
@@ -32,7 +29,7 @@ const BottomSection = () => {
           <InfoBody>Copywrite @2023 息纵 All Rights Reserved</InfoBody>
         </Col>
         <Col span={8}>
-          <InfoBody>沪ICP备09051952号-6</InfoBody>
+          <InfoBody></InfoBody>
         </Col>
         <Col span={8}>
           <InfoBody>隐私条款</InfoBody>

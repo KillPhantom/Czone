@@ -9,32 +9,59 @@ import {
 
 type PropsType = { shouldRenderMobileComponent: boolean };
 
-const FIRST_TEXT =
-  "通过数字化管理，实现公司标准的落地，根据核心产出的内容物、质量、数量的不同，明确不同任职资格标准，并帮助企业将传统的“等级制”任职资格的能力要求升级为“行为指标”能力要求";
-
-const SECOND_TEXT =
-  "运用行业数据和人工智能进行员工效率分析,量身定制人才培养计划,提升员工效率,降低人员流失率,根据企业效能智能分析招聘需求，智能算法筛选简历";
 const DropdownSection = () => {
-  const [detailText, setDetailText] = useState("");
+  const [detailText, setDetailText] = useState(0);
 
   return (
     <Wrapper>
       <TextContainer>
         <Divider />
         <Text
-          onMouseEnter={() => setDetailText(FIRST_TEXT)}
-          onMouseLeave={() => setDetailText("")}
+          onMouseEnter={() => setDetailText(1)}
+          onMouseLeave={() => setDetailText(0)}
         >
-          智能效率诊断
+          公司结构优化
         </Text>
         <Text
-          onMouseEnter={() => setDetailText(SECOND_TEXT)}
-          onMouseLeave={() => setDetailText("")}
+          onMouseEnter={() => setDetailText(2)}
+          onMouseLeave={() => setDetailText(0)}
         >
-          人才管理优化
+          员工日常管理
+        </Text>
+        <Text
+          onMouseEnter={() => setDetailText(3)}
+          onMouseLeave={() => setDetailText(0)}
+        >
+          人员队伍扩张
         </Text>
       </TextContainer>
-      {detailText && <DetailText>{detailText}</DetailText>}
+      {detailText === 1 && (
+        <div style={{ display: "block" }}>
+          <DetailText>岗位优化 - 甄别可以增加、兼并的岗位</DetailText>
+          <DetailText>绩效对标 - 对标同行业同岗位绩效</DetailText>
+          <DetailText>架构梳理 - 组织架构、汇报线梳理优化</DetailText>
+        </div>
+      )}
+      {detailText === 2 && (
+        <div style={{ display: "block" }}>
+          <DetailText>绩效考核 - 提高日常绩效管理效率 </DetailText>
+          <DetailText>
+            薪酬管理 - 优化薪酬结构，充分调动员工积极性，以提高业绩和方便管理
+          </DetailText>
+          <DetailText>员工培训 - 员工日常技能培训，如干部夜校等</DetailText>
+        </div>
+      )}
+      {detailText === 3 && (
+        <div style={{ display: "block" }}>
+          <DetailText>
+            精准需求 - 精准识别人才需求，匹配相应人才以适应公司快速的业务扩张{" "}
+          </DetailText>
+          <DetailText>
+            人才对接 - 缩短新员工适应时间，保证公司扩张过程中的平稳过度
+          </DetailText>
+          <DetailText>招聘加速 - 智能化提效简历初筛等招聘流程</DetailText>
+        </div>
+      )}
     </Wrapper>
   );
 };

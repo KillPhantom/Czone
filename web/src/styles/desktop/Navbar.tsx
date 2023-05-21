@@ -24,7 +24,7 @@ export const Wrapper = styled.div<{
             height: ${initialHeight}px;
           }
           to {
-            height: ${initialHeight + 140}px;
+            height: ${initialHeight + 190}px;
           }
         }`};
 `;
