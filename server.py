@@ -1,24 +1,26 @@
 import tornado.ioloop
 import tornado.web
 from handler.save_company_info import SaveCompanyInfoHandler
+from handler.home_page_handler import HomePageHandler
 from mongoengine import connect
 
 
-# settings = {
-#     "template_path": os.path.join(
-#         Path(os.path.dirname(__file__)).parent.absolute(), "cozy/public"
-#     ),
-#     "autoreload": True,
-# }
-# MTAzMzUxNTIyMDE5MjIwNjk1OA.Gt4N3w.2Xz3IlBwqm0-eKg6UWsJ-3wunY1XT2Zbm_1d74 Discord
-
-ROUTE_MAPPING = [
-    (r"/api/save-info", SaveCompanyInfoHandler),
-]
+class Application(tornado.web.Application):
+    def __init__(self):
+        handlers = [
+            (r"/api/save-info", SaveCompanyInfoHandler),
+            (r"/", HomePageHandler),
+            (r"/demo", HomePageHandler),
+        ]
+        settings = {
+            "template_path": "dist/",
+            "static_path": "dist/",
+        }
+        tornado.web.Application.__init__(self, handlers, **settings)
 
 
 def make_app():
-    return tornado.web.Application(ROUTE_MAPPING)
+    return Application()
 
 
 if __name__ == "__main__":

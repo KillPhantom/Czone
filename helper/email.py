@@ -6,8 +6,7 @@ from dotenv import dotenv_values
 env_vars = dotenv_values(".env")
 
 
-def send_email(subject, message):
-    sender_email = env_vars["SENDER_EMAIL"]
+def send_email(sender_email, subject, message):
     receiver_email = env_vars["RECEIVER_EMAIL"]
 
     # SMTP server configuration

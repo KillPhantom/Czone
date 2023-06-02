@@ -2,6 +2,7 @@ from handler.base_handler import BaseHandler
 import json
 from data.model.company_Info import CompanyInfo
 from helper.email import send_email
+import logging
 
 
 class SaveCompanyInfoHandler(BaseHandler):
@@ -26,8 +27,11 @@ class SaveCompanyInfoHandler(BaseHandler):
             except Exception as e:
                 pass
 
-        send_email(
-            subject="New company info was sent",
-            message=json.dumps(company_info.to_dict()),
-        )
+        try:
+            send_email(
+                subject="New company info was sent",
+                message=json.dumps(company_info.to_dict()),
+            )
+        except Exception as e:
+            logging.info(e)
         self.write({"data": "success"})
