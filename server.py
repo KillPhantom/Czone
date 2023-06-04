@@ -13,8 +13,8 @@ class Application(tornado.web.Application):
             (r"/demo", HomePageHandler),
         ]
         settings = {
-            "template_path": "dist/",
-            "static_path": "dist/",
+            "template_path": "web/dist/",
+            "static_path": "web/dist/",
         }
         tornado.web.Application.__init__(self, handlers, **settings)
 
@@ -25,7 +25,7 @@ def make_app():
 
 if __name__ == "__main__":
     app = make_app()
-    app.listen(8888)
+    app.listen(8080)
     connect(db="companyInfo", host="localhost", port=27017)
     print("server has started")
     tornado.ioloop.IOLoop.current().start()

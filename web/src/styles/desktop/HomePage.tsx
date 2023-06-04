@@ -5,7 +5,7 @@ import QRCodeImg from "@assets/images/QRCode.png";
 export const Wrapper = styled.div`
   width: 100%;
   position: relative;
-  top: 10vh;
+  top: 4vh;
   background: linear-gradient(
     298.84deg,
     rgba(0, 0, 0, 0.89) 38.84%,
