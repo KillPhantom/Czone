@@ -70,11 +70,7 @@ const Navbar = () => {
         <MainContent>
           <div style={{ display: "flex" }}>
             <LogoContainer onClick={() => navigate(HOME_PAGE)}>
-              <div style={{ display: "flex" }}>
-                <LogoImg />
-                <LogoTitle>C-Zone</LogoTitle>
-              </div>
-              <LogoBody>boost productivity with one click</LogoBody>
+              <LogoImg />
             </LogoContainer>
             <Button
               variant={BUTTON_TYPE.LINK}

@@ -1,13 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { BarsOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { message } from "antd";
 import { useNavigate } from "react-router-dom";
-import { DEMO_PAGE, HOME_PAGE } from "../../Routes";
+import { HOME_PAGE } from "../../Routes";
 
 /* Components */
-import LogoWithText from "@assets/icons/Heart";
-import Button, { BUTTON_TYPE } from "@common/Button";
 import Dropdown from "@mobile/DropdownPanel";
 
 /* Styles */
@@ -15,9 +12,7 @@ import {
   Wrapper,
   MainContent,
   LogoContainer,
-  LogoBody,
   LogoTitle,
-  ButtonGroup,
   MenuItem,
   LogoImg,
 } from "@styles/mobile/Navbar";
@@ -44,16 +39,6 @@ const Navbar = () => {
   const ref = useRef(null);
   const navigate = useNavigate();
 
-  const handleMenuClick: MenuProps["onClick"] = (e) => {
-    message.info("Click on menu item.");
-    navigate(DEMO_PAGE);
-  };
-
-  const menuProps = {
-    items,
-    onClick: handleMenuClick,
-  };
-
   useEffect(() => {
     if (ref.current) {
       setHeight(ref.current.clientHeight);
@@ -71,10 +56,7 @@ const Navbar = () => {
         <MainContent>
           <div style={{ display: "flex" }}>
             <LogoContainer onClick={() => navigate(HOME_PAGE)}>
-              <div style={{ display: "flex" }}>
-                <LogoImg />
-                <LogoTitle>息纵</LogoTitle>
-              </div>
+              <LogoImg />
             </LogoContainer>
           </div>
           <BarsOutlined

@@ -1,4 +1,4 @@
-import { Row, Col, Image, Divider as AntDivider } from "antd";
+import { Row, Col, Divider as AntDivider } from "antd";
 import { InfoHeader, InfoBody, QRCodeImage } from "@styles/desktop/HomePage";
 
 const BottomSection = () => {
@@ -29,7 +29,11 @@ const BottomSection = () => {
           <InfoBody>Copywrite @2023 息纵 All Rights Reserved</InfoBody>
         </Col>
         <Col span={8}>
-          <InfoBody></InfoBody>
+          <InfoBody>
+            <a href="http://beian.miit.gov.cn" style={{ color: "white" }}>
+              沪ICP备2023014199号
+            </a>
+          </InfoBody>
         </Col>
         <Col span={8}>
           <InfoBody>隐私条款</InfoBody>

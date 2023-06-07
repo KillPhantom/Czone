@@ -85,7 +85,11 @@ const HomePage = () => {
 
         <AntDivider style={{ background: "#6e6b5d", marginTop: "2vh" }} />
         <FooterText>Copywrite @2023 息纵 All Rights Reserved</FooterText>
-        {/* <FooterText>沪ICP备09051952号-6</FooterText> */}
+        <FooterText>
+          <a href="http://beian.miit.gov.cn" style={{ color: "white" }}>
+            沪ICP备2023014199号
+          </a>
+        </FooterText>
         <FooterText>隐私条款</FooterText>
       </Wrapper>
     </>

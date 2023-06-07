@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Logo from "@assets/icons/logo.png";
+import Logo from "@assets/icons/logo_white.png";
 
 export const Wrapper = styled.div<{
   showDropdown?: boolean;
@@ -9,7 +9,7 @@ export const Wrapper = styled.div<{
   width: 100%;
   z-index: 2;
   border-bottom: 1px solid #f8db91;
-  padding: 30px 0 14px;
+  padding: 30px 0 0px;
   background-color: #32302b;
 `;
 
@@ -59,6 +59,6 @@ export const MenuItem = styled.div`
 `;
 
 export const LogoImg = styled.img.attrs({ src: Logo })`
-  margin-top: -10px;
-  width: 40px;
+  margin-top: -14px;
+  width: 160px;
 `;

@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
 
 export const TextContainer = styled.div`
   padding-left: 20px;
-  padding-top: 20px;
+  padding-bottom: 20px;
   min-width: 180px;
 `;
 
