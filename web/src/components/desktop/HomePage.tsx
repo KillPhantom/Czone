@@ -1,14 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import { DEMO_PAGE } from "../../Routes";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 /* Components */
 import { Space, Form, Input, Select, Modal } from "antd";
 import Button, { BUTTON_TYPE } from "@common/Button";
 import Navbar from "@desktop/Navbar";
-import Card from "@common/Card";
 import BottomContent from "@desktop/BottomSection";
 import { connect } from "react-redux";
 import SaveCompanyInfoService from "@services/SaveCompanyInfoService";
+import ContentCard from "@desktop/ContentCard";
+import Counter from "@common/AnimatedCounter";
 
 /* Styles */
 import {
@@ -19,15 +21,18 @@ import {
   Slogan,
   SloganHeader,
   SloganBody,
-  CardWrapper,
   Divider,
   BottomSection,
   BottomSectionHeader,
+  AnimationLeftContainer,
+  AnimationRightContainer,
+  CounterContainer,
+  CounterText,
 } from "@styles/desktop/HomePage";
-
-import Circle from "@assets/icons/Circles";
-import Earth from "@assets/icons/Earth";
-import Rects from "@assets/icons/Rects";
+import IconSlider from "./IconSlider";
+import StaticGraph from "@desktop/animation/StaticGraph";
+import PeopleGraph from "@desktop/animation/PeopleGraph";
+import EfficiencyGraph from "@desktop/animation/EfficiencyGraph";
 
 import { PRODUCT_OPTIONS, PEOPLE_OPTIONS } from "@data/Constants";
 
@@ -46,6 +51,13 @@ const HomePage = ({ saveInfo }: PropsType) => {
       content: "感谢提交信息！我们将尽快与您取得联系",
     });
   };
+
+  const { scrollYProgress } = useScroll();
+
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+  });
 
   return (
     <>
@@ -70,23 +82,67 @@ const HomePage = ({ saveInfo }: PropsType) => {
           </TitleContainer>
           <BackgroundImg />
         </Content>
-        <CardWrapper>
-          <Card
-            title="精简人力管理流程"
-            body="AI自动化绩效管理、人才招聘、企业培训等流程, 提高管理效率，加强公司凝聚力"
-            icon={<Rects />}
+        <motion.div
+          animate={Number(scrollYProgress) > 0.3 ? "visible" : "hidden"}
+          style={{ scaleX }}
+        >
+          <Divider />
+        </motion.div>
+        <AnimationRightContainer>
+          <ContentCard
+            title={"AI + 海量数据库极速招聘"}
+            texts={[
+              {
+                hint: "优化候选人画像,对标行业龙头",
+              },
+              { hint: "海量人才库搜索,对接500w+高校本硕博人才" },
+              { hint: "大模型AI简历初筛, 秒级确认候选人名单" },
+              { hint: "深度学习定制面试题库, 提高面试效率, 确保适配度" },
+            ]}
           />
-          <Card
-            title="定制化提高人效"
-            body="利用独有行业数据库，对标企业同行标杆，筛查低效人力、管理环节，精简企业人力结构，助力公利用最小人力成本实现最大营收回报"
-            icon={<Earth />}
+          <PeopleGraph />
+        </AnimationRightContainer>
+        <AnimationLeftContainer>
+          <StaticGraph />
+          <ContentCard
+            alignDirection="right"
+            title={"中小型企业精准化高效队伍扩张"}
+            texts={[
+              {
+                hint: "制定业务增长目标,定制化业务发展优先级",
+              },
+              { hint: "对标同时期行业发展,识别需求岗位" },
+              { hint: "根据现有业务,高效定制人才画像" },
+              { hint: "算法筛选人才库,快速对接入职" },
+              { hint: "一体化培训方案,快速上手业务" },
+            ]}
           />
-          <Card
-            title="精准捕捉人才需求"
-            body="根据企业发展阶段、利用AI定制化人才需求画像、筛选候选人，缩短招聘流程，提高招聘效率，帮助公司出海、转型、迈上行业新台阶"
-            icon={<Circle />}
+        </AnimationLeftContainer>
+        <AnimationRightContainer>
+          <ContentCard
+            title={"中型企业降本增效"}
+            texts={[
+              {
+                hint: "业务流程梳理 + 低效环节识别",
+              },
+              { hint: "优化员工人数结构 + 优化工作内容" },
+              { hint: "科学跨部门合作, 理清部门权责, 设定相关KPI和权责" },
+            ]}
           />
-        </CardWrapper>
+          <EfficiencyGraph />
+        </AnimationRightContainer>
+        <CounterContainer>
+          <div style={{ color: "white" }}>
+            <Counter value={900} suffix="w+" />
+            中国高校本硕毕业生数据
+          </div>
+          <CounterText>
+            <Counter value={2000} suffix="+" />
+            海外知名公司对标数据
+          </CounterText>
+        </CounterContainer>
+
+        <IconSlider />
         <Divider />
         <BottomSection>
           <BottomSectionHeader>即刻开启AI高效管理体验</BottomSectionHeader>
@@ -131,6 +187,20 @@ const HomePage = ({ saveInfo }: PropsType) => {
               >
                 <Input
                   placeholder="手机号码"
+                  style={{
+                    height: "40px",
+                    borderRadius: "10px",
+                    fontSize: "14px",
+                    padding: "20px",
+                  }}
+                />
+              </Form.Item>
+              <Form.Item
+                name="contactEmail"
+                rules={[{ required: true, message: "电子邮箱地址不能为空" }]}
+              >
+                <Input
+                  placeholder="电子邮箱地址"
                   style={{
                     height: "40px",
                     borderRadius: "10px",

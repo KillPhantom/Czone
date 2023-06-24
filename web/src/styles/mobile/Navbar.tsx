@@ -10,7 +10,8 @@ export const Wrapper = styled.div<{
   z-index: 2;
   border-bottom: 1px solid #f8db91;
   padding: 30px 0 0px;
-  background-color: #32302b;
+  background-color: #131312;
+  top: 0;
 `;
 
 export const MainContent = styled.div`

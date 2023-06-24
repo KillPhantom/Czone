@@ -3,24 +3,17 @@ import { Form, Input, Select, Modal } from "antd";
 import Button, { BUTTON_TYPE } from "@common/Button";
 
 // @actions
-import { connect } from "react-redux";
 import SaveCompanyInfoService from "@services/SaveCompanyInfoService";
 import { PRODUCT_OPTIONS, PEOPLE_OPTIONS } from "@data/Constants";
 
-const mapDispatchToProps = (dispatch: any) => ({
-  saveInfo: (surveyForm: any) => dispatch(SaveCompanyInfoService(surveyForm)),
-});
-
-type PropsType = ReturnType<typeof mapDispatchToProps>;
-
-const SurveyForm = ({ saveInfo }: PropsType) => {
+const SurveyForm = () => {
   const [form] = Form.useForm();
 
-  const onSubmit = (values: any) => {
-    saveInfo(values);
+  const onSubmit = async (values: any) => {
     Modal.success({
       content: "感谢提交信息！我们将尽快与您取得联系",
     });
+    await SaveCompanyInfoService(values);
   };
 
   return (
@@ -77,6 +70,20 @@ const SurveyForm = ({ saveInfo }: PropsType) => {
           />
         </Form.Item>
         <Form.Item
+          name="contactEmail"
+          rules={[{ required: true, message: "电子邮箱地址不能为空" }]}
+        >
+          <Input
+            placeholder="电子邮箱地址"
+            style={{
+              height: "40px",
+              borderRadius: "10px",
+              fontSize: "14px",
+              padding: "20px",
+            }}
+          />
+        </Form.Item>
+        <Form.Item
           name="companySize"
           rules={[{ required: true, message: "人数选项不能为空" }]}
         >
@@ -109,4 +116,4 @@ const SurveyForm = ({ saveInfo }: PropsType) => {
   );
 };
 
-export default connect(null, mapDispatchToProps)(SurveyForm);
+export default SurveyForm;

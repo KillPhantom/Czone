@@ -20,6 +20,9 @@ const BottomSection = () => {
         </Col>
         <Col span={8}>
           <InfoHeader style={{ textAlign: "left" }}>联系我们</InfoHeader>
+          <InfoBody style={{ marginBottom: "30px" }}>
+            marketing@czone.pro
+          </InfoBody>
           <QRCodeImage />
         </Col>
       </Row>

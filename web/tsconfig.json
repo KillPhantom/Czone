@@ -27,5 +27,6 @@
       "@pageSwitch/*": ["./src/components/pageSwitch/*"]
     }
   },
+  "resolveJsonModule": true,
   "includes": ["src/**/*", "src/declaration.d.ts"]
 }

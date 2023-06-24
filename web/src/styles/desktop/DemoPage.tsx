@@ -43,3 +43,12 @@ export const BackgroundImg = styled.img.attrs({ src: BackgroundImage })`
   max-width: 70vw;
   z-index: 0;
 `;
+
+export const TitleContainer = styled.div`
+  max-width: 40vw;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10vh;
+  margin-left: 10vw;
+`;

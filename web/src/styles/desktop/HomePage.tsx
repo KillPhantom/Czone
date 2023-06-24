@@ -26,7 +26,7 @@ export const TitleContainer = styled.div`
   text-align: left;
   display: flex;
   flex-direction: column;
-  margin-top: 10vh;
+  margin-top: 30vh;
   margin-left: 10vw;
 `;
 
@@ -119,4 +119,29 @@ export const InfoBody = styled.div`
   :hover {
     color: #f9d744;
   }
+`;
+
+export const AnimationLeftContainer = styled.div`
+  display: flex;
+  margin-left: 12vw;
+  margin-top: 10vh;
+  margin-bottom: 18vh;
+`;
+
+export const AnimationRightContainer = styled.div`
+  display: flex;
+  justify-content: right;
+  margin-right: 12vw;
+  margin-top: 8vh;
+  margin-bottom: 20vh;
+`;
+
+export const CounterContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const CounterText = styled.div`
+  margin-left: 200px;
+  color: white;
 `;

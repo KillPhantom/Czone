@@ -48,18 +48,21 @@ const DropdownSection = () => {
           <DetailText>
             薪酬管理 - 优化薪酬结构，充分调动员工积极性，以提高业绩和方便管理
           </DetailText>
-          <DetailText>员工培训 - 员工日常技能培训，如干部夜校等</DetailText>
+          <DetailText>
+            员工培训 - 提供定制化培训和职业发展项目，满足多样化员工职业发展需求
+          </DetailText>
         </div>
       )}
       {detailText === 3 && (
         <div style={{ display: "block" }}>
           <DetailText>
-            精准需求 - 精准识别人才需求，匹配相应人才以适应公司快速的业务扩张{" "}
+            精准需求 -
+            咨询顾问团队定制化分析公司人才需求，细化人才技能和专业背景画像
           </DetailText>
           <DetailText>
-            人才对接 - 缩短新员工适应时间，保证公司扩张过程中的平稳过度
+            人才对接 - 定制题库，精准识别候选人，平均入职周期缩短30%
           </DetailText>
-          <DetailText>招聘加速 - 智能化提效简历初筛等招聘流程</DetailText>
+          <DetailText>招聘加速 - 行业独家人才库，快速覆盖候选人</DetailText>
         </div>
       )}
     </Wrapper>

@@ -23,6 +23,7 @@ class CompanyInfo(Document):
     company_name = f.StringField(required=True)
     contact_name = f.StringField(required=True)
     contact_number = f.StringField(required=True)
+    contact_email = f.StringField(required=True)
     company_size = f.IntField(default=CompanySizeType.LESS_THAN_10, required=True)
     topic = f.StringField(default=InterestedTopicType.COMPANY_STRUCTURE, required=True)
 
@@ -31,6 +32,7 @@ class CompanyInfo(Document):
         return {
             "company_name": self.company_name,
             "contact_name": self.contact_name,
+            "contact_email": self.contact_email,
             "contact_number": self.contact_number,
             "company_size": self.company_size,
             "topic": self.topic,

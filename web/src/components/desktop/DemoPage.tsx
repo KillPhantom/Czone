@@ -1,12 +1,13 @@
 import Navbar from "@desktop/Navbar";
 import Circle from "@assets/icons/Circles";
 /* Styles */
-import { TitleContainer, Slogan, SloganHeader } from "@styles/desktop/HomePage";
+import { Slogan, SloganHeader } from "@styles/desktop/HomePage";
 import {
   Wrapper,
   MainContent,
   Divider,
   InfoBody,
+  TitleContainer,
 } from "@styles/desktop/DemoPage";
 import { Space, Divider as AntDivider } from "antd";
 import SurveyForm from "@desktop/SurveyForm";
